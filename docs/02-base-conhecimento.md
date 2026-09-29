@@ -53,9 +53,6 @@ O perfil do usuário vai fixo no system prompt, para calibrar tom e prioridade d
 
 > Mostre um exemplo de como os dados são formatados para o agente.
 
-
-## Exemplo de Contexto Montado
-
 > Exemplo de como os dados são formatados e injetados no contexto do Hip para uma sessão de atendimento.
 
 ```
