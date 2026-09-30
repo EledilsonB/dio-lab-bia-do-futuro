@@ -11,8 +11,6 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 | `perfil_investidor.json` | JSON | Adaptar o nível e o foco das explicações ao perfil e aos objetivos declarados do usuário (ex: priorizar conceitos de renda fixa e reserva de emergência para quem tem perfil conservador e essa meta) |
 | `produtos_financeiros.json` | JSON | Explicar como cada categoria de produto funciona (risco, rentabilidade, liquidez) quando o usuário perguntar sobre ela — nunca para sugerir qual produto ele deveria escolher |
 
-> [!TIP]
-> **Quer um dataset mais robusto?** Você pode utilizar datasets públicos do [Hugging Face](https://huggingface.co/datasets) relacionados a finanças, desde que sejam adequados ao contexto do desafio.
 
 ---
 
