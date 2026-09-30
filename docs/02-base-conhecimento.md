@@ -11,7 +11,6 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 | `perfil_investidor.json` | JSON | Adaptar o nível e o foco das explicações ao perfil e aos objetivos declarados do usuário (ex: priorizar conceitos de renda fixa e reserva de emergência para quem tem perfil conservador e essa meta) |
 | `produtos_financeiros.json` | JSON | Explicar como cada categoria de produto funciona (risco, rentabilidade, liquidez) quando o usuário perguntar sobre ela — nunca para sugerir qual produto ele deveria escolher |
 
-
 ---
 
 ## Adaptações nos Dados
@@ -53,9 +52,6 @@ O perfil do usuário vai fixo no system prompt, para calibrar tom e prioridade d
 ## Exemplo de Contexto Montado
 
 > Mostre um exemplo de como os dados são formatados para o agente.
-
-
-## Exemplo de Contexto Montado
 
 > Exemplo de como os dados são formatados e injetados no contexto do Hip para uma sessão de atendimento.
 
