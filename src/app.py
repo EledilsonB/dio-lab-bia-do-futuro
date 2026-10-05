@@ -4,8 +4,8 @@ import json
 import requests
 
 # ===== DEFININDO MODELO =====
-MODELO = 'Qwen Code'
-OLLAMA_URL = '127.0.0.1:11434'
+MODELO = 'mistral'
+OLLAMA_URL = 'http://127.0.0.1:11434/api/generate'
 
 # ====== CARREGAR DADOS =====
 transacoes = pd.read_csv('./data/transacoes.csv')
@@ -19,7 +19,6 @@ with open('./data/produtos_financeiros.json', 'r', encoding='utf-8') as p:
 
 
 # ==== MONTANDO CONTEXTO =====
-
 contexto = f'''
 
 CLIENTE: {perfil['nome']}, {perfil['idade']} anos, perfil {perfil['perfil_investidor']}
