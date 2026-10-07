@@ -52,3 +52,7 @@ O app espera os seguintes arquivos em `./data/`:
 - Todo o conteúdo de `./data/` é recarregado para memória a cada execução do script — sem cache entre sessões.
 - Sem tratamento de erro caso o Ollama não esteja rodando ou o modelo não esteja baixado — a chamada em `perguntar()` falhará nesse caso.
 - Dados de exemplo (mock); uso com dados reais de clientes requer revisão de segurança e privacidade antes de produção.
+
+## Evidência de Execução
+<img width="1868" height="973" alt="image" src="https://github.com/user-attachments/assets/d98302ca-4f63-4565-8a3f-bcc35a273863" />
+
