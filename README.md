@@ -20,63 +20,29 @@ Projeto do desafio **Agente Financeiro Inteligente** (DIO): um agente conversaci
 │   ├── perfil_investidor.json     # Perfil, objetivos e metas do cliente
 │   └── produtos_financeiros.json  # Produtos disponíveis para consulta educacional
 │
-├── docs/                          # Documentação do projeto
-│   ├── documentacao-agente.md     # Caso de uso, persona, arquitetura, segurança
-│   ├── base-conhecimento.md       # Como os dados viram contexto do agente
-│   ├── prompts.md                 # System prompt, exemplos e edge cases
-│   ├── metricas.md                # Cenários de teste e resultados de avaliação
-│   └── 05-pitch.md                # Roteiro do pitch (pendente de gravação)
+├── 📁 docs/                          # Documentação do projeto
+│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
+│   ├── 02-base-conhecimento.md       # Estratégia de dados
+│   ├── 03-prompts.md                 # Engenharia de prompts
+│   ├── 04-metricas.md                # Avaliação e métricas
+│   └── 05-pitch.md                   # Roteiro do pitch
 │
-├── src/
-│   └── app.py                     # Aplicação Streamlit + Ollama
+├── 📁 src/                           # Código da aplicação
+│   └── app.py                        # (exemplo de estrutura)
 │
-├── assets/                        # Diagramas e roteiro do lab
-└── examples/                      # Referências de implementação do desafio
+├── 📁 assets/                        # Imagens e diagramas
+│   └── ...
+│
+└── 📁 examples/                      # Referências e exemplos
+    └── README.md
 ```
 
-## Como Rodar
+---
 
-1. Instale o [Ollama](https://ollama.com) e baixe o modelo configurado em `src/app.py` (atualmente `mistral`):
-   ```bash
-   ollama pull mistral
-   ```
-2. Instale as dependências:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Suba o app a partir da raiz do projeto:
-   ```bash
-   streamlit run src/app.py
-   ```
+## Dicas Finais
 
-O app carrega os arquivos de `data/` em memória, monta o contexto do cliente e envia cada pergunta ao modelo local via Ollama (`http://127.0.0.1:11434`), seguindo as regras do system prompt definido em `docs/prompts.md`.
-
-## Arquitetura (resumo)
-
-```mermaid
-flowchart TD
-    A[Cliente] -->|Mensagem| B[Interface Streamlit]
-    B --> C[LLM via Ollama]
-    C --> D[Base de Conhecimento: data/]
-    D --> C
-    C --> E[System Prompt: regras de segurança]
-    E --> F[Resposta]
-    F --> A
-```
-
-Detalhes de como cada arquivo de `data/` é usado (e o que não é usado como critério de recomendação) estão em [`docs/base-conhecimento.md`](./docs/base-conhecimento.md).
-
-## Status Atual
-
-- ✅ Documentação do agente, base de conhecimento e prompts definidos e versionados em `docs/`.
-- ✅ Protótipo funcional em Streamlit, rodando com Ollama local (`mistral`).
-- ⚠️ **Avaliação em andamento:** testes estruturados (`docs/metricas.md`) mostraram que o modelo `mistral` falha em 3 de 5 cenários — ora recomendando produtos por perfil (violando a regra central do agente), ora ignorando dados já presentes no contexto. Troca de modelo está sendo avaliada.
-- ⏳ Pitch (3 min) ainda não gravado — roteiro em [`docs/05-pitch.md`](./docs/05-pitch.md).
-
-## Ferramentas Utilizadas
-
-| Categoria | Ferramenta |
-|-----------|-------------|
-| **LLM** | [Ollama](https://ollama.com) (local) |
-| **Interface** | [Streamlit](https://streamlit.io/) |
-| **Dados** | `pandas` + JSON mockado em `data/` |
+1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
+2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
+3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
+4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
+5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
