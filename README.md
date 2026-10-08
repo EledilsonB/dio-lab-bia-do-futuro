@@ -1,149 +1,82 @@
-# 🤖 Agente Financeiro Inteligente com IA Generativa
+# 🤖 Hip — Educador Financeiro com IA Generativa
 
-## Contexto
+Projeto do desafio **Agente Financeiro Inteligente** (DIO): um agente conversacional que ensina conceitos de finanças pessoais e investimentos, usando os dados do próprio cliente como exemplo — e que, por decisão de design, **nunca recomenda onde investir**.
 
-Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
+## O Agente
 
-- **Antecipar necessidades** ao invés de apenas responder perguntas
-- **Personalizar** sugestões com base no contexto de cada cliente
-- **Cocriar soluções** financeiras de forma consultiva
-- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
+**Hip** é um tutor financeiro, não um consultor. Ele explica como funcionam renda fixa, risco, liquidez e diversificação a partir da situação real do cliente (gastos, reserva de emergência, metas), mas se recusa a indicar produtos ou investimentos específicos — inclusive sob insistência ou em cenários hipotéticos. Essa é a regra central do projeto, não um detalhe de implementação.
 
-> [!TIP]
-> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
-
----
-
-## O Que Você Deve Entregar
-
-### 1. Documentação do Agente
-
-Defina **o que** seu agente faz e **como** ele funciona:
-
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
-
-📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
-
----
-
-### 2. Base de Conhecimento
-
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
-
-| Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
-
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
-
-📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
-
----
-
-### 3. Prompts do Agente
-
-Documente os prompts que definem o comportamento do seu agente:
-
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
-
-📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
-
----
-
-### 4. Aplicação Funcional
-
-Desenvolva um **protótipo funcional** do seu agente:
-
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
-
-📁 **Pasta:** [`src/`](./src/)
-
----
-
-### 5. Avaliação e Métricas
-
-Descreva como você avalia a qualidade do seu agente:
-
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
-
-📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
-
----
-
-### 6. Pitch
-
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
-
-- Qual problema seu agente resolve?
-- Como ele funciona na prática?
-- Por que essa solução é inovadora?
-
-📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
-
----
-
-## Ferramentas Sugeridas
-
-Todas as ferramentas abaixo possuem versões gratuitas:
-
-| Categoria | Ferramentas |
-|-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
-
----
+📄 Documentação completa: [`docs/documentacao-agente.md`](./docs/documentacao-agente.md)
 
 ## Estrutura do Repositório
 
 ```
-📁 lab-agente-financeiro/
+├── README.md
+├── requirements.txt
 │
-├── 📄 README.md
+├── data/                          # Dados mockados do cliente
+│   ├── transacoes.csv             # Transações recentes
+│   ├── historico_atendimento.csv  # Atendimentos anteriores
+│   ├── perfil_investidor.json     # Perfil, objetivos e metas do cliente
+│   └── produtos_financeiros.json  # Produtos disponíveis para consulta educacional
 │
-├── 📁 data/                          # Dados mockados para o agente
-│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
-│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
-│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
-│   └── transacoes.csv                # Histórico de transações (CSV)
+├── docs/                          # Documentação do projeto
+│   ├── documentacao-agente.md     # Caso de uso, persona, arquitetura, segurança
+│   ├── base-conhecimento.md       # Como os dados viram contexto do agente
+│   ├── prompts.md                 # System prompt, exemplos e edge cases
+│   ├── metricas.md                # Cenários de teste e resultados de avaliação
+│   └── 05-pitch.md                # Roteiro do pitch (pendente de gravação)
 │
-├── 📁 docs/                          # Documentação do projeto
-│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
-│   ├── 02-base-conhecimento.md       # Estratégia de dados
-│   ├── 03-prompts.md                 # Engenharia de prompts
-│   ├── 04-metricas.md                # Avaliação e métricas
-│   └── 05-pitch.md                   # Roteiro do pitch
+├── src/
+│   └── app.py                     # Aplicação Streamlit + Ollama
 │
-├── 📁 src/                           # Código da aplicação
-│   └── app.py                        # (exemplo de estrutura)
-│
-├── 📁 assets/                        # Imagens e diagramas
-│   └── ...
-│
-└── 📁 examples/                      # Referências e exemplos
-    └── README.md
+├── assets/                        # Diagramas e roteiro do lab
+└── examples/                      # Referências de implementação do desafio
 ```
 
----
+## Como Rodar
 
-## Dicas Finais
+1. Instale o [Ollama](https://ollama.com) e baixe o modelo configurado em `src/app.py` (atualmente `mistral`):
+   ```bash
+   ollama pull mistral
+   ```
+2. Instale as dependências:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Suba o app a partir da raiz do projeto:
+   ```bash
+   streamlit run src/app.py
+   ```
 
-1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
-2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
-3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
-4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
-5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
+O app carrega os arquivos de `data/` em memória, monta o contexto do cliente e envia cada pergunta ao modelo local via Ollama (`http://127.0.0.1:11434`), seguindo as regras do system prompt definido em `docs/prompts.md`.
+
+## Arquitetura (resumo)
+
+```mermaid
+flowchart TD
+    A[Cliente] -->|Mensagem| B[Interface Streamlit]
+    B --> C[LLM via Ollama]
+    C --> D[Base de Conhecimento: data/]
+    D --> C
+    C --> E[System Prompt: regras de segurança]
+    E --> F[Resposta]
+    F --> A
+```
+
+Detalhes de como cada arquivo de `data/` é usado (e o que não é usado como critério de recomendação) estão em [`docs/base-conhecimento.md`](./docs/base-conhecimento.md).
+
+## Status Atual
+
+- ✅ Documentação do agente, base de conhecimento e prompts definidos e versionados em `docs/`.
+- ✅ Protótipo funcional em Streamlit, rodando com Ollama local (`mistral`).
+- ⚠️ **Avaliação em andamento:** testes estruturados (`docs/metricas.md`) mostraram que o modelo `mistral` falha em 3 de 5 cenários — ora recomendando produtos por perfil (violando a regra central do agente), ora ignorando dados já presentes no contexto. Troca de modelo está sendo avaliada.
+- ⏳ Pitch (3 min) ainda não gravado — roteiro em [`docs/05-pitch.md`](./docs/05-pitch.md).
+
+## Ferramentas Utilizadas
+
+| Categoria | Ferramenta |
+|-----------|-------------|
+| **LLM** | [Ollama](https://ollama.com) (local) |
+| **Interface** | [Streamlit](https://streamlit.io/) |
+| **Dados** | `pandas` + JSON mockado em `data/` |
