@@ -24,11 +24,12 @@ Projeto do desafio **Agente Financeiro Inteligente** (DIO): um agente conversaci
 │   ├── documentacao-agente.md     # Caso de uso, persona, arquitetura, segurança
 │   ├── base-conhecimento.md       # Como os dados viram contexto do agente
 │   ├── prompts.md                 # System prompt, exemplos e edge cases
-│   ├── metricas.md                # Cenários de teste e resultados de avaliação
-│   └── 05-pitch.md                # Roteiro do pitch (pendente de gravação)
+│   └── metricas.md                # Cenários de teste e resultados de avaliação
+│   
 │
 ├── src/
-│   └── app.py                     # Aplicação Streamlit + Ollama
+│   |── app.py                     # Aplicação Streamlit + Ollama
+|   └── Doc.md                     # Explica o código
 │
 ├── assets/                        # Diagramas e roteiro do lab
 └── examples/                      # Referências de implementação do desafio
